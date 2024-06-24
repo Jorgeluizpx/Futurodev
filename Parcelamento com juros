@@ -1,0 +1,45 @@
+# Exibição do nome completo (Exigência de Código 1 de 6)
+print("Bem-vindos à loja do [Seu Nome Completo]")
+
+# Implementação de input para valorDoPedido e quantidadeParcelas (Exigência de Código 2 de 6)
+valorDoPedido = float(input("Digite o valor do pedido: R$ "))
+quantidadeParcelas = int(input("Digite a quantidade de parcelas: "))
+
+# Implementação do cálculo de juros (Exigência de Código 3 de 6)
+if quantidadeParcelas < 4:
+    juros = 0.0
+elif quantidadeParcelas >= 4 and quantidadeParcelas < 6:
+    juros = 0.04
+elif quantidadeParcelas >= 6 and quantidadeParcelas < 9:
+    juros = 0.08
+elif quantidadeParcelas >= 9 and quantidadeParcelas < 13:
+    juros = 0.16
+else:
+    juros = 0.32
+
+# Implementação do valorDaParcela e valorTotalParcelado (Exigência de Código 4 de 6)
+valorDaParcela = valorDoPedido * (1 + juros) / quantidadeParcelas
+valorTotalParcelado = valorDaParcela * quantidadeParcelas
+
+# Exibição dos resultados (Exigência de Código 5 de 6)
+print(f"\nValor do pedido: R$ {valorDoPedido:.2f}")
+print(f"Quantidade de parcelas: {quantidadeParcelas}")
+print(f"Juros aplicados: {juros*100}%")
+
+if quantidadeParcelas >= 4:
+    print(f"Valor da parcela: R$ {valorDaParcela:.2f}")
+    print(f"Valor total parcelado: R$ {valorTotalParcelado:.2f}")
+
+# Comentários relevantes (Exigência de Código 6 de 6)
+# Este código calcula o valor das parcelas e o valor total a ser pago
+# com base na quantidade de parcelas selecionadas pelo cliente e os juros aplicáveis.
+
+# Mensagem com o nome completo na saída de console (Exigência de Saída de Console 1 de 2)
+print("\nObrigado por utilizar o sistema de parcelamento de [Seu Nome Completo].")
+
+# Exibição do parcelamento com Juros se a quantidadeParcelas for maior ou igual a 4 (Exigência de Saída de Console 2 de 2)
+if quantidadeParcelas >= 4:
+    print(f"O parcelamento com juros foi realizado em {quantidadeParcelas} vezes.")
+    print(f"Cada parcela será de R$ {valorDaParcela:.2f}, totalizando R$ {valorTotalParcelado:.2f}.")
+else:
+    print("Parcelamento sem juros.")
